@@ -1,0 +1,43 @@
+﻿
+@model MVCAssignment_1___2.Models.GetMax
+
+@{
+    ViewData["Title"] = "FindMax";
+}
+
+<h3>Application to find maximum number</h3>
+
+<h4>Enter two numbers</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FindMax">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Num1" class="control-label"></label>
+                <input asp-for="Num1" class="form-control" />
+                <span asp-validation-for="Num1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Num2" class="control-label"></label>
+                <input asp-for="Num2" class="form-control" />
+                <span asp-validation-for="Num2" class="text-danger"></span>
+            </div>
+            @* <div class="form-group">
+                <label asp-for="Message" class="control-label"></label>
+                <input asp-for="Message" class="form-control" />
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div> *@
+            <div class="form-group my-2">
+                <input type="submit" value="Find Max" class="btn btn-primary" />
+            </div>
+            <br />
+            <h2>@Model.Message</h2>@* / Keyword added to recive object of GetMax Model *@
+        </form>
+    </div>
+</div>
+
+@* <div>
+    <a asp-action="Index">Back to List</a>
+</div> *@
+

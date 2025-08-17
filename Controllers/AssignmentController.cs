@@ -45,20 +45,36 @@ namespace MVCAssignment_1___2.Controllers
 
 
 
-        public IActionResult GuessingGame()
-        {
-            
-            return View();
-        }
-
-
-
-
-        //public IActionResult LayoutChange()
+        //public IActionResult GuessingGame()
         //{
             
         //    return View();
         //}
+
+
+
+        [HttpGet]//By default
+        public IActionResult FindMax()
+        {
+            GetMax obj = new GetMax();
+            return View(obj);
+        }
+
+        [HttpPost]
+        public IActionResult FindMax(GetMax obj)
+        {
+            if(obj.Num1 > obj.Num2)
+                obj.Message = $"First number: {obj.Num1} is greater then second number: {obj.Num2}";
+            
+            else if(obj.Num1 < obj.Num2)
+                obj.Message = $"First number: {obj.Num1} is smaller then second number: {obj.Num2}";
+            
+            else
+                obj.Message = $"First number: {obj.Num1} is equal with second number: {obj.Num2}";
+            
+            return View(obj);
+        }
+
 
     }
 }
