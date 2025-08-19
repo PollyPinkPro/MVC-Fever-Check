@@ -21,5 +21,16 @@ namespace MVCAssignment_1___2.Controllers
         {
             return View(students);
         }
+         public IActionResult Details(int id)
+         {
+            var student = from s in students
+                          where s.SId == id
+                          select s;
+
+            var query = students.FirstOrDefault(s => s.SId == id);
+
+            return View(query);
+         }
+
     }
 }
