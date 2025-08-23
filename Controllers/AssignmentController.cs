@@ -75,6 +75,18 @@ namespace MVCAssignment_1___2.Controllers
             return View(obj);
         }
 
+        [HttpGet]
+        public IActionResult FindMin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult FindMin()
+        {
+            return View();
+        }
+
 
     }
 }
