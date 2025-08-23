@@ -44,35 +44,24 @@ namespace MVCAssignment_1___2.Controllers
         }
 
 
-
-        //public IActionResult GuessingGame()
-        //{
-            
-        //    return View();
-        //}
-
-
-
-        [HttpGet]//By default
-        public IActionResult FindMax()
+        [HttpGet]
+        public IActionResult GuessingGame()
         {
-            GetMax obj = new GetMax();
-            return View(obj);
+            Random rnd = new Random();
+            int sNumber = rnd.Next(1, 501);
+
+            GuessingGameModel obj = new GuessingGameModel();
+            obj.SecretNumber = sNumber;
+
+            HttpContext.Session.SetInt32("Number", sNumber);
+
+            return View();
         }
 
         [HttpPost]
-        public IActionResult FindMax(GetMax obj)
+        public IActionResult GuessingGame(GuessingGameModel obj)
         {
-            if(obj.Num1 > obj.Num2)
-                obj.Message = $"First number: {obj.Num1} is greater then second number: {obj.Num2}";
-            
-            else if(obj.Num1 < obj.Num2)
-                obj.Message = $"First number: {obj.Num1} is smaller then second number: {obj.Num2}";
-            
-            else
-                obj.Message = $"First number: {obj.Num1} is equal with second number: {obj.Num2}";
-            
-            return View(obj);
+            return View();
         }
 
         [HttpGet]
@@ -86,6 +75,30 @@ namespace MVCAssignment_1___2.Controllers
         {
             return View();
         }
+
+
+
+        //[HttpGet]//By default
+        //public IActionResult FindMax()
+        //{
+        //    GetMax obj = new GetMax();
+        //    return View(obj);
+        //}
+
+        //[HttpPost]
+        //public IActionResult FindMax(GetMax obj)
+        //{
+        //    if(obj.Num1 > obj.Num2)
+        //        obj.Message = $"First number: {obj.Num1} is greater then second number: {obj.Num2}";
+            
+        //    else if(obj.Num1 < obj.Num2)
+        //        obj.Message = $"First number: {obj.Num1} is smaller then second number: {obj.Num2}";
+            
+        //    else
+        //        obj.Message = $"First number: {obj.Num1} is equal with second number: {obj.Num2}";
+            
+        //    return View(obj);
+        //}
 
 
     }
