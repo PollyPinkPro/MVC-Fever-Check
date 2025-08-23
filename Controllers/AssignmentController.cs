@@ -67,13 +67,21 @@ namespace MVCAssignment_1___2.Controllers
         [HttpGet]
         public IActionResult FindMin()
         {
-            return View();
+            GetMin obj = new GetMin();
+            return View(obj);
+            
         }
 
         [HttpPost]
-        public IActionResult FindMin()
+        public IActionResult FindMin(GetMin obj)
         {
-            return View();
+            if (obj.Num1 < obj.Num2)
+                obj.Resultat = $"First number: {obj.Num1} is smaller than second number: {obj.Num2}";
+            else if (obj.Num1 > obj.Num2)
+                obj.Resultat = $"First number: {obj.Num1} is greater than second number: {obj.Num2}";
+            else
+                obj.Resultat = $"First number: {obj.Num1} is equal to second number: {obj.Num2}";
+            return View(obj);
         }
 
 
@@ -90,13 +98,13 @@ namespace MVCAssignment_1___2.Controllers
         //{
         //    if(obj.Num1 > obj.Num2)
         //        obj.Message = $"First number: {obj.Num1} is greater then second number: {obj.Num2}";
-            
+
         //    else if(obj.Num1 < obj.Num2)
         //        obj.Message = $"First number: {obj.Num1} is smaller then second number: {obj.Num2}";
-            
+
         //    else
         //        obj.Message = $"First number: {obj.Num1} is equal with second number: {obj.Num2}";
-            
+
         //    return View(obj);
         //}
 

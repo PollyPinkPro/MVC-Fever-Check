@@ -1,0 +1,41 @@
+﻿@model MVCAssignment_1___2.Models.GetMin
+
+@{
+    ViewData["Title"] = "FindMin";
+}
+
+<h3>App to find minimum number</h3>
+
+<h4>Enter two numbers</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FindMin">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Num1" class="control-label"></label>
+                <input asp-for="Num1" class="form-control" />
+                <span asp-validation-for="Num1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Num2" class="control-label"></label>
+                <input asp-for="Num2" class="form-control" />
+                <span asp-validation-for="Num2" class="text-danger"></span>
+            </div>
+            @* <div class="form-group">
+                <label asp-for="Resultat" class="control-label"></label>
+                <input asp-for="Resultat" class="form-control" />
+                <span asp-validation-for="Resultat" class="text-danger"></span>
+            </div> *@
+            <div class=" my-2 form-group">
+                <input type="submit" value="Compare numbers" class="btn btn-primary" />
+            </div>
+            <h1>@Model.Resultat</h1>
+        </form>
+    </div>
+</div>
+
+@* <div>
+    <a asp-action="Index">Back to List</a>
+</div> *@
+

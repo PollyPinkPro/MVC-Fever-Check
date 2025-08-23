@@ -10,6 +10,6 @@ namespace MVCAssignment_1___2.Models
         [Display(Name = "Second Number")]
         public double Num2 { get; set; }
 
-        public string Resultat { get; set; }
+        public string Resultat { get; set; }= string.Empty;
     }
 }
